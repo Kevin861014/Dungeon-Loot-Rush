@@ -12,6 +12,7 @@ namespace DungeonLootRush.Player
         private Rigidbody2D _rigidbody;
 
         public Vector2 FacingDirection { get; private set; } = Vector2.down;
+        public bool IsMoving { get; private set; }
 
         private void Awake()
         {
@@ -23,7 +24,8 @@ namespace DungeonLootRush.Player
             Vector2 input = joystick != null ? joystick.Direction : Vector2.zero;
             _rigidbody.velocity = input * moveSpeed;
 
-            if (input.sqrMagnitude > 0.01f)
+            IsMoving = input.sqrMagnitude > 0.01f;
+            if (IsMoving)
             {
                 FacingDirection = input.normalized;
             }
