@@ -30,7 +30,7 @@ namespace DungeonLootRush.Combat
         {
             _direction = direction.normalized;
             _homingTarget = homingTarget;
-            _rigidbody.linearVelocity = _direction * Speed;
+            _rigidbody.velocity = _direction * Speed;
             Destroy(gameObject, Lifetime);
         }
 
@@ -39,7 +39,7 @@ namespace DungeonLootRush.Combat
             if (Behavior == ProjectileBehavior.Homing && _homingTarget != null)
             {
                 _direction = ((Vector2)_homingTarget.position - _rigidbody.position).normalized;
-                _rigidbody.linearVelocity = _direction * Speed;
+                _rigidbody.velocity = _direction * Speed;
             }
         }
 
@@ -72,7 +72,7 @@ namespace DungeonLootRush.Combat
 
             _remainingBounces--;
             _direction = Vector2.Reflect(_direction, collision.contacts[0].normal);
-            _rigidbody.linearVelocity = _direction * Speed;
+            _rigidbody.velocity = _direction * Speed;
         }
     }
 }

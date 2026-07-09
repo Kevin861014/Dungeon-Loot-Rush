@@ -21,7 +21,7 @@ namespace DungeonLootRush.Player
         private void FixedUpdate()
         {
             Vector2 input = joystick != null ? joystick.Direction : Vector2.zero;
-            _rigidbody.linearVelocity = input * moveSpeed;
+            _rigidbody.velocity = input * moveSpeed;
 
             if (input.sqrMagnitude > 0.01f)
             {

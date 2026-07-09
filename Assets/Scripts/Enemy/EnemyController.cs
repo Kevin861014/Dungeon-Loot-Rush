@@ -37,7 +37,7 @@ namespace DungeonLootRush.Enemy
             }
 
             Vector2 direction = ((Vector2)_player.position - _rigidbody.position).normalized;
-            _rigidbody.linearVelocity = direction * moveSpeed;
+            _rigidbody.velocity = direction * moveSpeed;
         }
 
         private void OnTriggerStay2D(Collider2D other)
